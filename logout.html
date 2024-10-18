@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming external CSS -->
+</head>
+<body>
+    <div class="button-group">
+        <a href="{{ url_for('user_info', access_token=access_token) }}" class="button">User Info</a><br>
+        <a href="{{ url_for('rooms', access_token=access_token) }}" class="button">Rooms</a><br>
+        <a href="{{ url_for('connection_status', access_token=access_token) }}" class="button">Connection Status</a><br>
+        <a href="{{ url_for('logout', access_token=access_token) }}">
+            <button class="button logout">Logout</button> <!-- Logout link -->
+        </a> <!-- Close the <a> tag -->
+    </div>
+</body>
+</html>

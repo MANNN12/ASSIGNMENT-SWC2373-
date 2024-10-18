@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connection Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2><strong>Connection Status</strong></h2>
+            <p>{{ status['status'] }}</p>
+            <div class="button-group">
+                <a href="{{ url_for('menu', access_token=request.view_args['access_token']) }}">
+                    <button class="button">Back to Menu</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

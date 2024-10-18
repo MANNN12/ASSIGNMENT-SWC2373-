@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h2><strong> Menu Page </strong></h2>
+        <div class="button-group">
+            <a href="{{ url_for('user_info', access_token=access_token) }}">
+                <button class="button">User Information</button>
+            </a>
+            <a href="{{ url_for('connection_status', access_token=access_token) }}">
+                <button class="button">Connection Status</button>
+            </a>
+            <a href="{{ url_for('rooms', access_token=access_token) }}">
+                <button class="button">Rooms</button>
+            </a>
+            <a href="{{ url_for('logout', access_token=access_token) }}">
+                <button class="button">Logout</button>
+        </div>
+    </div>
+</body>
+</html>

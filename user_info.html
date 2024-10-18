@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><strong>User Info</strong></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>User Information</h2>
+            <div class="user-info">
+                <div class="info-box">
+                    <p><strong>Name:</strong> {{ user_info['displayName'] }}</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Email:</strong> {{ user_info['emails'][0] }}</p>
+                </div>
+                <div class="info-box">
+                    <p><strong>Org ID:</strong> <span class="org-id">{{ user_info['orgId'] }}</span></p>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="{{ url_for('menu', access_token=request.view_args['access_token']) }}">
+                  <button class="button">Back to Menu</button>
+              
+            </div>
+        </div>
+    </div>
+</body>
+</html>

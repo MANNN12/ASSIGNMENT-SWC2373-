@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h2><strong>Webex Rooms</strong></h2>
+
+        <div class="rooms">
+            <!-- Loop through rooms and limit to 5 -->
+            {% for room in rooms[:5] %}
+            <div class="room">
+                <label for="room{{ loop.index }}">Room {{ loop.index }}:</label>
+                <!-- Fix the room title display syntax -->
+                <input type="text" id="room{{ loop.index }}" value="{{ room['title'] }}" readonly>
+
+                <p><strong>Room ID:</strong> {{ room['id'] }}</p>
+                <p><strong>Date Created:</strong> 
+                    {{ room['date_created'] | default('Unknown') }} <!-- Provide fallback for date_created -->
+                </p>
+                <p><strong>Last Activity:</strong> 
+                    {{ room['last_activity'] | default('Unknown') }} <!-- Provide fallback for last_activity -->
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Button to go back to the menu -->
+        <div class="button-group">
+            <a href="{{ url_for('menu') }}">
+                <button class="button">Back to Menu</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
